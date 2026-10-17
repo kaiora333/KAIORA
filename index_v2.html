@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#070b0e">
+<meta name="description" content="KAIORA — TCG, productos sellados y coleccionables.">
+<title>KAIORA — TCG & Coleccionables</title>
+
+<style>
+:root{
+  --bg:#070b0e;
+  --bg2:#0b1115;
+  --surface:#10181d;
+  --surface2:#151f25;
+  --text:#f1f8fa;
+  --muted:#91a3aa;
+  --line:#213038;
+  --accent:#32d5e7;
+  --accent2:#8cecf4;
+  --dark:#041014;
+  --shadow:0 24px 70px #00000066;
+  --radius:20px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:
+    radial-gradient(circle at 80% 0%,#32d5e70d,transparent 28rem),
+    radial-gradient(circle at 0% 35%,#32d5e706,transparent 25rem),
+    var(--bg);
+  color:var(--text);
+}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;opacity:.18;
+  background-image:linear-gradient(#ffffff05 1px,transparent 1px),linear-gradient(90deg,#ffffff05 1px,transparent 1px);
+  background-size:44px 44px;
+  mask-image:linear-gradient(to bottom,black,transparent 80%);
+}
+a{color:inherit}
+button{font:inherit}
+.container{width:min(1180px,calc(100% - 40px));margin:auto}
+
+/* NAV */
+header{
+  position:sticky;top:0;z-index:50;
+  background:#070b0ee8;
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid #ffffff0d;
+}
+.nav{height:76px;display:flex;align-items:center;justify-content:space-between}
+.logo{
+  text-decoration:none;font-size:24px;font-weight:950;
+  letter-spacing:.17em;line-height:1;
+}
+.logo span{color:var(--accent);text-shadow:0 0 24px #32d5e766}
+nav{display:flex;align-items:center;gap:28px}
+nav a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:750;transition:.2s}
+nav a:hover{color:var(--accent)}
+.nav-cta{padding:10px 15px;border:1px solid #32d5e755;border-radius:10px;color:var(--accent)!important}
+
+/* HERO */
+.hero{
+  min-height:680px;display:grid;grid-template-columns:1.08fr .92fr;
+  align-items:center;gap:55px;padding:75px 0 80px;
+}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  color:var(--accent);font-size:11px;font-weight:900;
+  letter-spacing:.18em;text-transform:uppercase;
+}
+.eyebrow:before{
+  content:"";width:24px;height:1px;background:var(--accent);
+  box-shadow:0 0 12px var(--accent);
+}
+h1{
+  font-size:clamp(48px,7vw,82px);line-height:.92;
+  letter-spacing:-.065em;margin:18px 0 25px;
+  max-width:750px;
+}
+.gradient{color:var(--accent);text-shadow:0 0 35px #32d5e733}
+.hero-copy{max-width:620px;color:var(--muted);font-size:17px;line-height:1.75;margin:0 0 32px}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  min-height:46px;padding:12px 18px;border:1px solid var(--line);
+  border-radius:12px;background:var(--surface);color:var(--text);
+  text-decoration:none;font-weight:850;cursor:pointer;transition:.2s;
+}
+.btn:hover{transform:translateY(-2px);border-color:#32d5e766}
+.btn.primary{
+  background:var(--accent);color:var(--dark);border-color:var(--accent);
+  box-shadow:0 10px 35px #32d5e71f;
+}
+.btn.primary:hover{box-shadow:0 12px 40px #32d5e733}
+.btn.whatsapp{border-color:#32d5e755;color:var(--accent)}
+
+/* HERO VISUAL */
+.hero-art{
+  min-height:430px;position:relative;overflow:hidden;
+  border:1px solid var(--line);border-radius:30px;
+  background:
+    radial-gradient(circle at 50% 43%,#32d5e71b,transparent 30%),
+    radial-gradient(circle at 50% 50%,#ffffff05,transparent 60%),
+    #0b1216;
+  box-shadow:var(--shadow);
+  display:grid;place-items:center;
+}
+.hero-art:after{
+  content:"";position:absolute;inset:auto -20% -55% -20%;height:55%;
+  background:radial-gradient(ellipse,#32d5e71a,transparent 65%);
+}
+.scan{
+  position:absolute;left:10%;right:10%;height:1px;
+  top:50%;background:#32d5e722;box-shadow:0 0 20px #32d5e733;
+}
+.orbit{
+  position:absolute;width:270px;height:270px;border:1px solid #32d5e744;border-radius:50%;
+  transform:rotate(-18deg);
+}
+.orbit:before,.orbit:after{
+  content:"";position:absolute;border:1px solid #32d5e71f;border-radius:50%;
+}
+.orbit:before{inset:25px}.orbit:after{inset:62px}
+.core{
+  position:relative;z-index:2;width:155px;height:155px;border-radius:50%;
+  border:1px solid #32d5e766;
+  background:radial-gradient(circle,#32d5e72a 0,#32d5e70c 42%,#0b1216 70%);
+  box-shadow:0 0 70px #32d5e71c,inset 0 0 35px #32d5e714;
+  display:grid;place-items:center;
+}
+.core span{font-size:29px;font-weight:950;letter-spacing:.12em;color:var(--accent)}
+.art-label{
+  position:absolute;bottom:24px;left:25px;right:25px;
+  display:flex;justify-content:space-between;align-items:center;
+  color:var(--muted);font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;
+}
+.status{display:flex;align-items:center;gap:7px}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent)}
+
+/* SECTIONS */
+section{padding:82px 0}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:28px}
+.kicker{color:var(--accent);font-size:11px;font-weight:900;letter-spacing:.18em;text-transform:uppercase}
+h2{font-size:38px;letter-spacing:-.045em;margin:7px 0 0}
+.section-head p{margin:0;color:var(--muted);font-size:14px}
+
+/* FILTERS */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.filter{
+  border:1px solid var(--line);background:transparent;color:var(--muted);
+  padding:9px 14px;border-radius:999px;cursor:pointer;font-weight:800;transition:.2s;
+}
+.filter:hover{border-color:#32d5e766;color:var(--text)}
+.filter.active{background:var(--accent);border-color:var(--accent);color:var(--dark)}
+
+/* PRODUCTS */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{
+  position:relative;background:linear-gradient(180deg,#111a1f,#0d1418);
+  border:1px solid var(--line);border-radius:18px;overflow:hidden;
+  transition:.25s;box-shadow:0 10px 35px #00000022;
+}
+.card:hover{transform:translateY(-5px);border-color:#32d5e755;box-shadow:0 20px 55px #00000055,0 0 30px #32d5e70a}
+.pic{
+  height:245px;position:relative;display:grid;place-items:center;overflow:hidden;
+  background:
+    radial-gradient(circle at 50% 45%,#32d5e714,transparent 42%),
+    linear-gradient(145deg,#151f24,#091014);
+}
+.pic:before{
+  content:"";position:absolute;width:190px;height:190px;border:1px solid #32d5e71c;border-radius:50%;
+}
+.pack{
+  width:116px;height:157px;border:1px solid #ffffff25;border-radius:10px;
+  background:linear-gradient(145deg,#26353b,#0c1418);
+  box-shadow:0 22px 38px #00000066,0 0 35px #32d5e70b;
+  display:grid;place-items:center;text-align:center;
+  color:var(--accent);font-weight:950;letter-spacing:.1em;font-size:13px;
+  position:relative;z-index:1;
+}
+.pack:after{
+  content:"";position:absolute;inset:8px;border:1px solid #32d5e71f;border-radius:6px;
+}
+.badge{
+  position:absolute;top:13px;left:13px;z-index:3;
+  padding:6px 9px;border-radius:7px;background:var(--accent);
+  color:var(--dark);font-size:10px;font-weight:950;letter-spacing:.06em;
+}
+.info{padding:18px}
+.info h3{font-size:17px;margin:0 0 8px;line-height:1.3}
+.info p{font-size:13px;line-height:1.55;color:var(--muted);min-height:41px;margin:0 0 14px}
+.price{font-size:20px;font-weight:950;margin-bottom:14px}
+.card .btn{width:100%}
+
+/* TRUST */
+.trust{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:12px;
+  margin:5px 0 25px;
+}
+.trust-item{
+  padding:20px;border:1px solid var(--line);border-radius:16px;background:#0d1519;
+}
+.trust-icon{color:var(--accent);font-size:18px;font-weight:950;margin-bottom:9px}
+.trust-item strong{display:block;font-size:14px}
+.trust-item span{display:block;color:var(--muted);font-size:12px;line-height:1.5;margin-top:4px}
+
+/* ABOUT */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.panel{
+  padding:30px;border:1px solid var(--line);border-radius:20px;
+  background:linear-gradient(145deg,#10191e,#0c1317);
+}
+.panel h3{font-size:21px;margin:0 0 12px}
+.panel p{color:var(--muted);line-height:1.75;margin:0}
+.steps{display:grid;gap:13px;margin-top:20px}
+.step{display:flex;gap:13px;align-items:flex-start}
+.step-num{
+  flex:0 0 30px;height:30px;border-radius:9px;background:#32d5e714;
+  border:1px solid #32d5e744;color:var(--accent);
+  display:grid;place-items:center;font-size:11px;font-weight:950;
+}
+.step strong{font-size:13px}.step span{display:block;color:var(--muted);font-size:12px;margin-top:3px}
+
+/* CONTACT */
+.contact-box{
+  display:flex;align-items:center;justify-content:space-between;gap:25px;
+  padding:32px;border:1px solid #32d5e733;border-radius:22px;
+  background:radial-gradient(circle at 85% 50%,#32d5e714,transparent 35%),#0d1519;
+}
+.contact-box h2{font-size:30px}
+.contact-box p{color:var(--muted);margin:8px 0 0}
+
+/* FOOTER */
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:12px}
+.footer-inner{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.footer-links{display:flex;gap:18px}
+.footer-links a{text-decoration:none;color:var(--muted)}
+.footer-links a:hover{color:var(--accent)}
+
+/* FLOATING */
+.float-wa{
+  position:fixed;right:20px;bottom:20px;z-index:40;
+  width:54px;height:54px;border-radius:50%;
+  display:grid;place-items:center;text-decoration:none;
+  background:var(--accent);color:var(--dark);font-weight:950;
+  box-shadow:0 12px 35px #00000066,0 0 25px #32d5e733;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;padding-top:55px}
+  .hero-art{min-height:330px}
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .trust{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:620px){
+  .container{width:min(100% - 28px,1180px)}
+  nav{display:none}
+  .nav{height:68px}
+  .hero{min-height:auto;padding:55px 0 35px;gap:35px}
+  h1{font-size:48px}
+  .hero-copy{font-size:15px}
+  .hero-art{min-height:280px;border-radius:23px}
+  .section-head{display:block}
+  .section-head p{margin-top:7px}
+  section{padding:60px 0}
+  .grid,.about{grid-template-columns:1fr}
+  .trust{grid-template-columns:1fr 1fr}
+  .contact-box{display:block;padding:25px}
+  .contact-box .actions{margin-top:20px}
+}
+@media(max-width:390px){
+  .trust{grid-template-columns:1fr}
+  h1{font-size:43px}
+}
+</style>
+</head>
+
+<body>
+<header>
+  <div class="container nav">
+    <a class="logo" href="#">KAI<span>ORA</span></a>
+    <nav>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#contacto">Contacto</a>
+      <a class="nav-cta" href="https://instagram.com/Kaiora.ok" target="_blank" rel="noopener">Instagram</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="container hero">
+    <div>
+      <div class="eyebrow">TCG · Coleccionables · Cultura gamer</div>
+      <h1>Encontrá algo que quieras <span class="gradient">conservar.</span></h1>
+      <p class="hero-copy">
+        KAIORA es un catálogo independiente de TCG y coleccionables seleccionados.
+        Productos sellados, cartas y piezas para quienes disfrutan coleccionar tanto como jugar.
+      </p>
+      <div class="actions">
+        <a class="btn primary" href="#catalogo">Explorar catálogo <span>↓</span></a>
+        <a class="btn whatsapp" href="https://wa.me/543564629206?text=Hola%20KAIORA%2C%20quiero%20consultar%20por%20un%20producto." target="_blank" rel="noopener">WhatsApp ↗</a>
+      </div>
+    </div>
+
+    <div class="hero-art" aria-label="Identidad visual KAIORA">
+      <div class="scan"></div>
+      <div class="orbit"></div>
+      <div class="core"><span>KAIORA</span></div>
+      <div class="art-label">
+        <span>TCG / COLLECT</span>
+        <span class="status"><i class="dot"></i>CATÁLOGO ONLINE</span>
+      </div>
+    </div>
+  </div>
+
+  <section id="catalogo">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="kicker">Selección KAIORA</div>
+          <h2>Catálogo</h2>
+        </div>
+        <p>Consultá disponibilidad antes de comprar.</p>
+      </div>
+
+      <div class="trust">
+        <div class="trust-item">
+          <div class="trust-icon">01</div>
+          <strong>Productos seleccionados</strong>
+          <span>Un catálogo chico y cuidado.</span>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">02</div>
+          <strong>Sellados & cartas</strong>
+          <span>Opciones para abrir o conservar.</span>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">03</div>
+          <strong>Atención directa</strong>
+          <span>Consultas rápidas por WhatsApp.</span>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">04</div>
+          <strong>Envíos a consultar</strong>
+          <span>Coordinamos según cada operación.</span>
+        </div>
+      </div>
+
+      <div class="filters">
+        <button class="filter active" data-filter="all">Todo</button>
+        <button class="filter" data-filter="sealed">Sellados</button>
+        <button class="filter" data-filter="cards">Cartas</button>
+        <button class="filter" data-filter="coleccion">Coleccionables</button>
+      </div>
+
+      <div class="grid" id="products"></div>
+    </div>
+  </section>
+
+  <section id="nosotros">
+    <div class="container">
+      <div class="about">
+        <div class="panel">
+          <div class="kicker">La idea detrás</div>
+          <h3>Sobre KAIORA</h3>
+          <p>
+            Una tienda pensada para comprar y coleccionar sin complicaciones.
+            La idea es mantener un catálogo chico, cuidado y actualizado,
+            con foco en productos sellados y cartas seleccionadas.
+          </p>
+        </div>
+
+        <div class="panel">
+          <div class="kicker">Simple y directo</div>
+          <h3>Cómo comprar</h3>
+          <div class="steps">
+            <div class="step">
+              <div class="step-num">01</div>
+              <div><strong>Elegí tu producto</strong><span>Explorá el catálogo y encontrá lo que buscás.</span></div>
+            </div>
+            <div class="step">
+              <div class="step-num">02</div>
+              <div><strong>Consultanos</strong><span>Te confirmamos stock, precio y condición.</span></div>
+            </div>
+            <div class="step">
+              <div class="step-num">03</div>
+              <div><strong>Coordinamos</strong><span>Definimos entrega o envío según cada operación.</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <div class="container">
+      <div class="contact-box">
+        <div>
+          <div class="kicker">¿Buscás algo?</div>
+          <h2>Hablemos.</h2>
+          <p>Si no encontrás un producto, también podés consultarnos.</p>
+        </div>
+        <div class="actions">
+          <a class="btn primary" href="https://wa.me/543564629206?text=Hola%20KAIORA%2C%20quiero%20hacer%20una%20consulta." target="_blank" rel="noopener">WhatsApp ↗</a>
+          <a class="btn" href="https://instagram.com/Kaiora.ok" target="_blank" rel="noopener">@Kaiora.ok ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <span>© 2026 KAIORA — TCG & Coleccionables</span>
+    <div class="footer-links">
+      <a href="https://instagram.com/Kaiora.ok" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://wa.me/543564629206" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+  </div>
+</footer>
+
+<a class="float-wa" href="https://wa.me/543564629206?text=Hola%20KAIORA%2C%20quiero%20consultar%20por%20un%20producto." target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">WA</a>
+
+<script>
+const products=[
+  {
+    name:"Pokémon TCG — 151 Booster Bundle",
+    cat:"sealed",
+    desc:"Producto sellado. Consultar disponibilidad y condición.",
+    price:"Consultar precio",
+    badge:"SELLADO"
+  },
+  {
+    name:"Pokémon TCG — Storm Emerald Booster Box",
+    cat:"sealed",
+    desc:"Booster Box sellada para colección.",
+    price:"Consultar precio",
+    badge:"SELLADO"
+  },
+  {
+    name:"Carta seleccionada — Holo",
+    cat:"cards",
+    desc:"Cartas individuales seleccionadas por estado y centrado.",
+    price:"Consultar precio",
+    badge:"CARTA"
+  },
+  {
+    name:"Carta japonesa — Colección",
+    cat:"cards",
+    desc:"Singles japonesas para coleccionistas.",
+    price:"Consultar precio",
+    badge:"JAPÓN"
+  },
+  {
+    name:"Coleccionables TCG",
+    cat:"coleccion",
+    desc:"Piezas y accesorios para completar tu colección.",
+    price:"Consultar precio",
+    badge:"COLECCIÓN"
+  },
+  {
+    name:"Próximamente",
+    cat:"coleccion",
+    desc:"Nuevos productos y oportunidades de importación.",
+    price:"Muy pronto",
+    badge:"NOVEDAD"
+  }
+];
+
+const root=document.getElementById("products");
+
+function render(filter="all"){
+  root.innerHTML=products
+    .filter(p=>filter==="all"||p.cat===filter)
+    .map(p=>`
+      <article class="card">
+        <div class="pic">
+          <span class="badge">${p.badge}</span>
+          <div class="pack">KAIORA<br>TCG</div>
+        </div>
+        <div class="info">
+          <h3>${p.name}</h3>
+          <p>${p.desc}</p>
+          <div class="price">${p.price}</div>
+          <button class="btn" onclick="contact(${JSON.stringify(p.name)})">Consultar por WhatsApp ↗</button>
+        </div>
+      </article>
+    `).join("");
+}
+
+function contact(name){
+  const text=encodeURIComponent("Hola KAIORA, me interesa: "+name);
+  window.open("https://wa.me/543564629206?text="+text,"_blank");
+}
+
+document.querySelectorAll(".filter").forEach(button=>{
+  button.addEventListener("click",()=>{
+    document.querySelectorAll(".filter").forEach(x=>x.classList.remove("active"));
+    button.classList.add("active");
+    render(button.dataset.filter);
+  });
+});
+
+render();
+</script>
+</body>
+</html>
