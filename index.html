@@ -305,52 +305,196 @@ body {
       ellipse at center,
       rgba(0, 205, 255, 0.15),
       transparent 68%
+    )
+}
+
+/* ==================================
+   KAIORA - IDENTIDAD GAMING NEON
+   ================================== */
+
+/* 1. Fondo general */
+body {
+  background:
+    radial-gradient(
+      ellipse at 78% 12%,
+      rgba(0, 213, 255, 0.15),
+      transparent 35%
+    ),
+    radial-gradient(
+      ellipse at 12% 65%,
+      rgba(55, 74, 185, 0.10),
+      transparent 40%
+    ),
+    #060a11;
+}
+
+/* Cuadricula decorativa mas discreta */
+body::before {
+  opacity: 0.10;
+}
+
+/* 2. Logo en la barra superior */
+.logo img {
+  display: block;
+  width: 160px;
+  height: auto;
+  max-height: 52px;
+  object-fit: contain;
+  filter: drop-shadow(
+    0 0 12px rgba(0, 213, 255, 0.20)
+  );
+}
+
+/* Encabezado oscuro y elegante */
+header {
+  background: rgba(6, 12, 20, 0.90);
+  border-bottom:
+    1px solid rgba(50, 213, 231, 0.18);
+  backdrop-filter: blur(18px);
+}
+
+nav a:hover {
+  color: #52eaff;
+  text-shadow: 0 0 12px #32d5e755;
+}
+
+/* 3. Portada: logo flotante */
+.hero-art {
+  border: 0;
+  box-shadow: none;
+  overflow: visible;
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(0, 200, 255, 0.16),
+      transparent 70%
     );
 }
 
-/* Logo original integrado al fondo */
+/* Logo original grande */
 .hero-art::before {
   content: "";
   position: absolute;
   inset: 0;
-
   background-image: url("kaiora-logo.png");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 95% auto;
-
+  background-size: 96% auto;
   opacity: 1;
   filter: drop-shadow(
-    0 0 28px rgba(0, 210, 255, 0.25)
+    0 0 25px rgba(0, 200, 255, 0.28)
   );
-
   z-index: 1;
   pointer-events: none;
 }
 
-/* Ocultar adornos antiguos */
+/* Ocultar adornos del diseño anterior */
 .hero-art .core,
 .hero-art .orbit,
 .hero-art .scan {
   display: none;
 }
 
-/* Conservar textos inferiores */
 .hero-art .art-label {
   z-index: 2;
 }
 
-/* Mejorar las tarjetas del catálogo */
+/* 4. Titulos y detalles */
+.gradient {
+  color: #46eaff;
+  text-shadow:
+    0 0 30px rgba(0, 213, 255, 0.35);
+}
+
+.kicker,
+.eyebrow {
+  color: #46eaff;
+}
+
+/* 5. Botones */
+.btn.primary {
+  background: linear-gradient(
+    135deg, #46eaff, #20bde0
+  );
+  border-color: #46eaff;
+  box-shadow:
+    0 8px 30px rgba(0, 213, 255, 0.20);
+}
+
+.btn.primary:hover {
+  box-shadow:
+    0 10px 35px rgba(0, 213, 255, 0.38);
+}
+
+/* 6. Tarjetas de productos */
 .card {
-  border: 1px solid rgba(50, 213, 231, 0.14);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.28);
+  background:
+    linear-gradient(160deg, #101f2a, #0a121b);
+  border:
+    1px solid rgba(50, 213, 231, 0.18);
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.30);
 }
 
 .card:hover {
-  border-color: rgba(50, 213, 231, 0.5);
-  box-shadow: 0 12px 40px rgba(0, 213, 255, 0.14);
+  border-color: rgba(50, 213, 231, 0.65);
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.35),
+    0 0 30px rgba(0, 213, 255, 0.16);
 }
-  
+
+.pic {
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(0, 213, 255, 0.12),
+      transparent 70%
+    ),
+    #0b151f;
+}
+
+/* 7. Filtros de catalogo */
+.filter.active {
+  box-shadow:
+    0 0 18px rgba(0, 213, 255, 0.22);
+}
+
+/* 8. Secciones informativas */
+.trust-item,
+.panel {
+  background:
+    linear-gradient(145deg, #101d26, #0a131b);
+  border-color: rgba(50, 213, 231, 0.16);
+}
+
+.contact-box {
+  background:
+    radial-gradient(
+      circle at 85% 40%,
+      rgba(0, 213, 255, 0.14),
+      transparent 55%
+    ),
+    #0b151e;
+  border-color: rgba(50, 213, 231, 0.30);
+}
+
+/* 9. Pie de pagina */
+footer {
+  border-top:
+    1px solid rgba(50, 213, 231, 0.20);
+}
+
+/* 10. Ajustes para celulares */
+@media (max-width: 620px) {
+  .logo img {
+    width: 135px;
+  }
+
+  .hero-art::before {
+    background-size: 96% auto;
+  }
+}
+
 
 }
 
@@ -360,7 +504,11 @@ body {
 <body>
 <header>
   <div class="container nav">
-    <a class="logo" href="#">KAI<span>ORA</span></a>
+    
+<a class="logo" href="#" aria-label="KAIORA - Inicio">
+  <img src="kaiora-logo.png" alt="KAIORA">
+</a>
+
     <nav>
       <a href="#catalogo">Catálogo</a>
       <a href="#nosotros">Nosotros</a>
