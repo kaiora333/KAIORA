@@ -278,9 +278,37 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
   .trust{grid-template-columns:1fr}
   h1{font-size:43px}
 }
-  
-/* LOGO ORIGINAL KAIORA EN LA PORTADA */
 
+/* NUEVA ESTETICA KAIORA */
+
+body {
+  background:
+    radial-gradient(
+      ellipse at 80% 12%,
+      rgba(0, 212, 255, 0.12),
+      transparent 38%
+    ),
+    radial-gradient(
+      ellipse at 12% 65%,
+      rgba(77, 44, 190, 0.09),
+      transparent 40%
+    ),
+    #070b0e;
+}
+
+/* Panel del logo, sin marco visible */
+.hero-art {
+  border: none;
+  box-shadow: none;
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(0, 205, 255, 0.15),
+      transparent 68%
+    );
+}
+
+/* Logo original integrado al fondo */
 .hero-art::before {
   content: "";
   position: absolute;
@@ -289,23 +317,41 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
   background-image: url("kaiora-logo.png");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 100% auto;
+  background-size: 95% auto;
 
-  mix-blend-mode: screen;
-  opacity: 0.82;
+  opacity: 1;
+  filter: drop-shadow(
+    0 0 28px rgba(0, 210, 255, 0.25)
+  );
 
-  pointer-events: none;
   z-index: 1;
+  pointer-events: none;
 }
 
-/* Ocultar el logo de texto anterior */
-.hero-art .core {
+/* Ocultar adornos antiguos */
+.hero-art .core,
+.hero-art .orbit,
+.hero-art .scan {
   display: none;
 }
 
-/* Mantener las etiquetas visibles */
+/* Conservar textos inferiores */
 .hero-art .art-label {
-  z-index: 3;
+  z-index: 2;
+}
+
+/* Mejorar las tarjetas del catálogo */
+.card {
+  border: 1px solid rgba(50, 213, 231, 0.14);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.28);
+}
+
+.card:hover {
+  border-color: rgba(50, 213, 231, 0.5);
+  box-shadow: 0 12px 40px rgba(0, 213, 255, 0.14);
+}
+  
+
 }
 
 </style>
