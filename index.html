@@ -278,6 +278,36 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
   .trust{grid-template-columns:1fr}
   h1{font-size:43px}
 }
+  
+/* LOGO ORIGINAL KAIORA EN LA PORTADA */
+
+.hero-art::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image: url("kaiora-logo.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+
+  mix-blend-mode: screen;
+  opacity: 0.82;
+
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Ocultar el logo de texto anterior */
+.hero-art .core {
+  display: none;
+}
+
+/* Mantener las etiquetas visibles */
+.hero-art .art-label {
+  z-index: 3;
+}
+
 </style>
 </head>
 
