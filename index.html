@@ -498,6 +498,183 @@ footer {
 
 }
 
+/* CARRUSEL PREVENTAS KAIORA */
+
+#preventas {
+  scroll-margin-top: 90px;
+}
+
+.pr-seccion {
+  padding: 45px 0 65px;
+}
+
+.pr-carrusel {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  max-width: 960px;
+  margin: 0 auto;
+  background: #0b1720;
+  border: 1px solid #32d5e744;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 15px 45px #0006;
+}
+
+.pr-visual {
+  position: relative;
+  min-height: 360px;
+  padding: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background:
+    radial-gradient(
+      circle,
+      #32d5e72b,
+      transparent 70%
+    ), #09131b;
+}
+
+.pr-visual img {
+  width: 100%;
+  height: 330px;
+  object-fit: contain;
+  filter: drop-shadow(0 15px 20px #0008);
+}
+
+.pr-etiqueta {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  padding: 7px 12px;
+  border-radius: 8px;
+  color: #041014;
+  background: #32d5e7;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.pr-info {
+  padding: 30px;
+}
+
+.pr-info h3 {
+  margin: 12px 0;
+  font-size: 26px;
+  line-height: 1.2;
+}
+
+.pr-descripcion,
+.pr-nota {
+  color: var(--muted);
+  line-height: 1.6;
+  font-size: 13px;
+}
+
+.pr-precio {
+  margin: 20px 0;
+}
+
+.pr-precio span,
+.pr-pagos span {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+
+.pr-precio strong {
+  font-size: 28px;
+  color: var(--text);
+}
+
+.pr-pagos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.pr-pagos > div {
+  padding: 15px;
+  border: 1px solid #32d5e733;
+  border-radius: 12px;
+  background: #102330;
+}
+
+.pr-pagos strong {
+  font-size: 20px;
+  color: #46eaff;
+}
+
+.pr-entrega {
+  color: #b9e9f0;
+  font-size: 13px;
+  margin: 18px 0;
+}
+
+#pr-reservar {
+  width: 100%;
+}
+
+.pr-controles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.pr-controles button {
+  padding: 10px 14px;
+  background: #102530;
+  color: #46eaff;
+  border: 1px solid #32d5e744;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.pr-controles button:hover {
+  background: #194456;
+}
+
+#pr-contador {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.pr-nota {
+  text-align: center;
+  margin-top: 18px;
+}
+
+/* CELULARES */
+@media (max-width: 700px) {
+  .pr-carrusel {
+    grid-template-columns: 1fr;
+  }
+
+  .pr-visual {
+    min-height: 240px;
+    padding: 15px;
+  }
+
+  .pr-visual img {
+    height: 230px;
+  }
+
+  .pr-info {
+    padding: 22px;
+  }
+
+  .pr-info h3 {
+    font-size: 22px;
+  }
+
+  .pr-pagos strong {
+    font-size: 18px;
+  }
+}
+
 </style>
 </head>
 
@@ -513,6 +690,8 @@ footer {
       <a href="#catalogo">Catálogo</a>
       <a href="#nosotros">Nosotros</a>
       <a href="#contacto">Contacto</a>
+      <a href="#preventas">Preventas</a>
+
       <a class="nav-cta" href="https://instagram.com/Kaiora.ok" target="_blank" rel="noopener">Instagram</a>
     </nav>
   </div>
@@ -531,6 +710,9 @@ footer {
 </p>
       <div class="actions">
         <a class="btn primary" href="#catalogo">Explorar catálogo <span>↓</span></a>
+        <a class="btn" href="#preventas">✨ Preventas · 30% de seña
+        </a>
+
         <a class="btn whatsapp" href="https://wa.me/543564629206?text=Hola%20KAIORA%2C%20quiero%20consultar%20por%20un%20producto." target="_blank" rel="noopener">WhatsApp ↗</a>
       </div>
     </div>
@@ -545,6 +727,103 @@ footer {
       </div>
     </div>
   </div>
+
+<!-- CARRUSEL DE PREVENTAS KAIORA -->
+<section id="preventas" class="pr-seccion">
+  <div class="container">
+
+    <div class="section-head">
+      <div>
+        <div class="kicker">KAIORA / PREVENTAS</div>
+        <h2>Elegí tu próxima
+          <span class="gradient">Booster Box.</span>
+        </h2>
+      </div>
+      <p>Reservá pagando solo el 30%.</p>
+    </div>
+
+    <div class="pr-carrusel" id="pr-carrusel">
+
+      <!-- Imagen que cambia -->
+      <div class="pr-visual">
+        <span class="pr-etiqueta">PREVENTA</span>
+        <img
+          id="pr-imagen"
+          src="imagenes/productos/STORM_EMERALD.png"
+          alt="Booster Box en preventa"
+        >
+      </div>
+
+      <!-- Informacion que cambia -->
+      <div class="pr-info">
+        <div class="kicker">POKEMON TCG JAPONES</div>
+
+        <h3 id="pr-nombre">Booster Box</h3>
+
+        <p class="pr-descripcion">
+          Asegurá tu próxima Booster Box japonesa
+          pagando solo una parte del total.
+        </p>
+
+        <div class="pr-precio">
+          <span>Precio final</span>
+          <strong id="pr-total">...</strong>
+        </div>
+
+        <div class="pr-pagos">
+          <div>
+            <span>Seña · 30%</span>
+            <strong id="pr-sena">...</strong>
+          </div>
+
+          <div>
+            <span>Restante · 70%</span>
+            <strong id="pr-restante">...</strong>
+          </div>
+        </div>
+
+        <p class="pr-entrega">
+          📦 Entrega estimada: 10 a 15 días
+          desde la confirmación de la reserva.
+        </p>
+
+        <a
+          id="pr-reservar"
+          class="btn primary"
+          href="#contacto"
+          target="_blank"
+          rel="noopener"
+        >
+          Reservar por WhatsApp ↗
+        </a>
+
+        <!-- Controles de la ruleta -->
+        <div class="pr-controles">
+          <button id="pr-anterior" type="button"
+            aria-label="Anterior">❮</button>
+
+          <span id="pr-contador">1 / 9</span>
+
+          <button id="pr-siguiente" type="button"
+            aria-label="Siguiente">❯</button>
+
+          <button id="pr-pausa" type="button">
+            Pausar
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <p class="pr-nota">
+      El 70% restante se abona al momento de
+      la entrega. Consultá disponibilidad,
+      envíos y condiciones antes de reservar.
+    </p>
+
+  </div>
+</section>
+<!-- FIN CARRUSEL -->
 
   <section id="catalogo">
     <div class="container">
@@ -711,7 +990,7 @@ const products=[
     desc:"Producto sellado. Consultar stock y condición.",
     price:"$145 USD",
     badge:"SELLADO",
-    image:"imagenes/productos/Ninja Spinner.png" 
+    image:"imagenes/productos/Mega brave.png"
   },
   {
     name:"Pokémon TCG — Mega Symphonia",
@@ -731,6 +1010,171 @@ const products=[
   },
   
 ];
+
+/* CARRUSEL DE PREVENTAS */
+
+// Usamos los productos existentes del catalogo.
+const preventas = products.filter(
+  producto => producto.cat === "sealed"
+);
+
+// Producto que se esta mostrando.
+let preventaActual = 0;
+let intervaloPreventa = null;
+let pausaManual = false;
+
+// Interpretar precios del catalogo:
+// "$155 USD" o "$230.000 ARS"
+function obtenerPrecio(texto) {
+  const moneda = /USD/i.test(texto) ? "USD" : "ARS";
+
+  const limpio = texto
+    .replace(/[^\d.,]/g, "")
+    .replace(/\./g, "")
+    .replace(",", ".");
+
+  const importe = Number(limpio);
+
+  return {
+    moneda,
+    importe,
+    valido: limpio !== "" && Number.isFinite(importe)
+  };
+}
+
+// Formatear importes.
+function dinero(valor, moneda) {
+  return new Intl.NumberFormat("es-AR", {
+    style: "currency",
+    currency: moneda,
+    minimumFractionDigits: moneda === "USD" ? 2 : 0,
+    maximumFractionDigits: moneda === "USD" ? 2 : 0
+  }).format(valor);
+}
+
+// Actualizar todos los datos del producto.
+function mostrarPreventa(numero) {
+  if (!preventas.length) return;
+
+  preventaActual =
+    (numero + preventas.length) % preventas.length;
+
+  const producto = preventas[preventaActual];
+  const precio = obtenerPrecio(producto.price);
+
+  document.getElementById("pr-imagen").src =
+    producto.image;
+
+  document.getElementById("pr-imagen").alt =
+    producto.name;
+
+  document.getElementById("pr-nombre").textContent =
+    producto.name;
+
+  document.getElementById("pr-contador").textContent =
+    `${preventaActual + 1} / ${preventas.length}`;
+
+  const total = document.getElementById("pr-total");
+  const sena = document.getElementById("pr-sena");
+  const restante = document.getElementById("pr-restante");
+
+  if (precio.valido) {
+    total.textContent =
+      dinero(precio.importe, precio.moneda);
+
+    sena.textContent =
+      dinero(precio.importe * 0.30, precio.moneda);
+
+    restante.textContent =
+      dinero(precio.importe * 0.70, precio.moneda);
+  } else {
+    total.textContent = "Consultar";
+    sena.textContent = "Consultar";
+    restante.textContent = "Consultar";
+  }
+
+  // WhatsApp personalizado para cada producto.
+  const mensaje =
+    `Hola KAIORA, quiero reservar ${producto.name}. ` +
+    `¿Me confirmás el precio, la seña del 30%, ` +
+    `la entrega y las condiciones?`;
+
+  document.getElementById("pr-reservar").href =
+    "https://wa.me/543564629206?text=" +
+    encodeURIComponent(mensaje);
+}
+
+// Flechas del carrusel.
+document.getElementById("pr-anterior")
+  .addEventListener("click", () => {
+    mostrarPreventa(preventaActual - 1);
+  });
+
+document.getElementById("pr-siguiente")
+  .addEventListener("click", () => {
+    mostrarPreventa(preventaActual + 1);
+  });
+
+// Rotacion automatica cada 6 segundos.
+function iniciarRuleta() {
+  if (
+    intervaloPreventa ||
+    pausaManual ||
+    document.hidden ||
+    window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches
+  ) return;
+
+  intervaloPreventa = setInterval(() => {
+    mostrarPreventa(preventaActual + 1);
+  }, 6000);
+}
+
+function detenerRuleta() {
+  clearInterval(intervaloPreventa);
+  intervaloPreventa = null;
+}
+
+// Boton de pausa.
+document.getElementById("pr-pausa")
+  .addEventListener("click", function() {
+    pausaManual = !pausaManual;
+    this.textContent = pausaManual
+      ? "Reanudar"
+      : "Pausar";
+
+    this.setAttribute(
+      "aria-pressed", String(pausaManual)
+    );
+
+    if (pausaManual) detenerRuleta();
+    else iniciarRuleta();
+  });
+
+// Pausar al usar el carrusel con el mouse.
+const areaPreventa =
+  document.getElementById("pr-carrusel");
+
+areaPreventa.addEventListener(
+  "mouseenter", detenerRuleta
+);
+
+areaPreventa.addEventListener(
+  "mouseleave", iniciarRuleta
+);
+
+// Pausar cuando se cambia de pestaña.
+document.addEventListener(
+  "visibilitychange", () => {
+    if (document.hidden) detenerRuleta();
+    else iniciarRuleta();
+  }
+);
+
+// Mostrar el primer producto y comenzar.
+mostrarPreventa(0);
+iniciarRuleta();
 
 const root=document.getElementById("products");
 
